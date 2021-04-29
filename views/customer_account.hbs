@@ -1,0 +1,43 @@
+{{> header}}
+
+{{> menu }}
+
+<section>
+    <div class="content">
+
+        {{> customer_dashboard_intro }}
+
+        {{> sub_menu }}
+
+        <article class="bloc Account_settings">
+
+            <h1>Account settings</h1>
+
+            <div class="bloc">
+
+                <div class="Form Form_account">
+
+                    <div class="bloc _form form_lastname">
+                        <span class="_content">{{ user.lastname }}</span>
+                        <input type="text" placeholder="Lastname" value="{{ user.lastname }}" />
+                        <input type="hidden" class="data_isForm_toogle" value='0' />
+                        <button>
+                            Edit Lastname
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        {{> customer_our_locations }}
+
+    </div>
+</section>
+
+<script sync type="text/javascript" src="/js/customer_account.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/customer_account.css" />
+
+{{> footer }}

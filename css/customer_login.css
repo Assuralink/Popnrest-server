@@ -1,0 +1,13 @@
+.Form_login{
+    float:left;
+    width:600px;
+    margin-left:calc((100% - 600px) / 2);
+    margin-top:50px;
+}
+.Form_login .form_email{
+    width:50%;
+}
+.Form_login .form_password{
+    width:calc(50% - 15px);
+    margin-left:15px;
+}

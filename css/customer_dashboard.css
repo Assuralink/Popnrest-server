@@ -1,0 +1,65 @@
+._header_upcoming_bookings_list,
+._header_past_bookings_list{
+    float:left;
+    width:100%;
+    border-bottom:2px solid #dedede;
+    margin-top:15px;
+    margin-bottom:35px;
+}
+._header_upcoming_bookings_list span,
+._header_past_bookings_list span{
+    float:left;
+    font-weight:700;
+    line-height:45px;
+    font-size:16px;
+}
+
+
+.Past_bookings,
+.Upcoming_bookings{
+    float:left;
+    width:625px;
+    margin-bottom:55px;
+    margin-left:calc((100% - 625px) / 2);
+}
+
+.Booking{
+    float:left;
+    line-height:25px;
+    font-size:16px;
+    letter-spacing:0.5px;
+}
+.Booking span{
+    float:left;
+    border-left:2px solid #dedede;
+    padding-top:25px;
+    line-height:15px;
+    padding-bottom:10px;
+}
+.Booking span:first-child{
+    border-left:none;
+}
+.Booking:first-child span{
+    padding-top:0;
+}
+
+.date{
+    width:95px;
+    padding-right:20px;
+}
+.time{
+    width:110px;
+    padding:0 20px;
+}
+.duration{
+    width:170px;
+    padding:0 20px;
+}
+.location{
+    width:170px;
+    padding:0 20px;
+}
+.price{
+    width:80px;
+    padding:0 20px;
+}

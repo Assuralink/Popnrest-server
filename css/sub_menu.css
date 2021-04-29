@@ -1,0 +1,25 @@
+nav.sub_menu{
+    float:left;
+    width:100%;
+    text-align:center;
+    border-bottom:none;
+}
+.sub_menu ul{
+    margin: 0;
+    display:inline-block;
+}
+.sub_menu li{
+    list-style:none;
+    display:inline;
+    padding:0 15px;
+}
+.sub_menu li a{
+    text-decoration:none;
+    color:initial;
+    font-weight:700;
+    font-size:16px;
+    line-height:80px;
+}
+.sub_menu li a.active{
+    color:#ffd400;
+}

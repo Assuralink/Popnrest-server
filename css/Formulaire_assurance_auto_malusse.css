@@ -1,0 +1,245 @@
+.Form_identitee{
+    margin-top:90px;
+}
+
+.form_nom,
+.form_prenom,
+.form_telephone,
+.form_ville{
+    margin-left:10px;
+}
+.form_date_naissance{
+    margin-left:10px;
+    width:150px;
+}
+
+.form_adresse{
+    width:100%;
+}
+.form_code_postal{
+    width:150px;
+}
+
+.Form_conducteur{
+    margin-top:90px;
+}
+
+.form_qualite_assure,
+.form_date_permis,
+.form_malus_actuel{
+    width:150px;
+}
+.form_nb_salaries{
+    padding-left:10px;
+    width:150px;
+    display:none;
+}
+.form_metier{
+    padding-left:10px;
+    width:calc(100% - 150px - 150px);
+}
+
+.form_malus_actuel,
+.form_date_obtention_malus{
+    padding-left:10px;
+}
+
+.form_date_obtention_malus{
+    width:auto;
+}
+.form_date_obtention_malus input{
+    width:140px;
+}
+
+.form_nb_mois_assurance_consecutif input,
+.form_nb_mois_sans_assurance input{
+    width:90px;
+}
+
+
+.Form_sinistres{
+    margin-top:90px;
+}
+
+
+.Form_Sinistre{
+    float:left;
+    width:100%;
+}
+.form_date_sinistre{
+    width:150px;
+}
+.form_nature_sinistre{
+    width:300px;
+    padding-left:10px;
+}
+.form_responsabilite_sinistre{
+    width:300px;
+    padding-left:10px;
+}
+.button_add_sinistre{
+    color:#81d4fa;
+    font-family:Roboto;
+    font-weight:600;
+}
+.button_add_sinistre:hover{
+    cursor:pointer;
+    color:#29b6f6;
+}
+
+.button_delete_Sinistre{
+    float:left;
+    width:35px;
+    text-align:center;
+    color:#dedede;
+    line-height:45px;
+    margin-top:25px;
+    padding-left:10px;
+}
+.button_delete_Sinistre:hover{
+    cursor:pointer;
+    color:#29b6f6;
+}
+
+
+.Form_vehicule{
+    margin-top:90px;
+}
+.form_immatriculation{
+    width:200px;
+    padding-left:10px;
+}
+.form_date_mise_circulation{
+    padding-left:10px;
+}
+.form_date_mise_circulation input{
+    width:150px;
+}
+
+.form_assurance_actuelle_vehicule{
+    width:350px;
+}
+.form_assureur_precedent{
+    width:calc(100% - 350px);
+    padding-left:10px;
+}
+.form_sinistre_suspension{
+    display:none;
+}
+
+
+.form_date_achat_vehicule{
+    width:150px;
+}
+.form_mode_achat_vehicule{
+    width:150px;
+    padding-left:10px;
+}
+
+.form_nature_comptant{
+    display:none;
+    width:200px;
+    padding-left:10px;
+}
+
+.form_organisme_financement{
+    width:250px;
+    padding-left:10px;
+}
+.form_date_fin_leasing{
+    width:150px;
+    padding-left:10px;
+}
+
+
+
+.Form_utilisation_vehicule{
+    margin-top:90px;
+}
+
+.Form_resiliation_assureur{
+    margin-bottom:25px;
+}
+.Form_resiliation_assureur ._details{
+    display:none;
+}
+.form_date_resiliation_assureur{
+    width:150px;
+}
+.form_cause_resiliation{
+    padding-left:10px;
+    width:calc(100% - 150px);
+}
+
+.Form_suspension_permis{
+    margin-bottom:25px;
+}
+.Form_suspension_permis ._details{
+    display:none;
+}
+.form_duree_suspension{
+    width:200px;
+}
+
+.Form_annulation_permis{
+    margin-bottom:25px;
+}
+.Form_annulation_permis ._details{
+    display:none;
+}
+.form_nb_mois_annulation{
+    width:200px;
+}
+.form_nb_annulation{
+    width:150px;
+    padding-left:10px;
+}
+.form_date_obtention_permis_anterieur_annulation{
+    width:300px;
+    padding-left:10px;
+}
+.form_date_obtention_permis_anterieur_annulation input{
+    width:150px;
+}
+
+.Form_alcoolemie{
+    margin-bottom:25px;
+}
+.Form_alcoolemie ._details{
+    display:none;
+}
+.form_nb_controles_positifs{
+    width:200px;
+}
+.form_date_dernier_controle{
+    padding-left:10px;
+    width:150px;
+}
+.form_taux_alcoolemie_dernier_controle{
+    padding-left:10px;
+    width:300px;
+}
+
+.form_nb_mois_assurance_consecutifs_avant_dernier_controle{
+    width:500px;
+}
+.form_infraction_constatee_suite_sinistre{
+    width:300px;
+}
+.form_delit_fuite_alcoolemie{
+    width:300px;
+}
+.form_suspension_permis_suite_alcoolemie{
+    width:300px;
+}
+.form_nb_mois_suspension_suite_alcoolemie{
+    width:150px;
+    padding-left:10px;
+}
+.form_nb_mois_annulation_suite_alcoolemie{
+    padding-left:10px;
+    width:150px;
+}
+.form_date_obtention_dernier_permis{
+    width:300px;
+}

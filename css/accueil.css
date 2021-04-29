@@ -1,0 +1,30 @@
+#logo{
+    float:left;
+    width:100%;
+    height:43vh;
+    background-position:center;
+    background-size:contain;
+    margin-top:35px;
+    margin-bottom: 65px;
+}
+
+
+.container-liste-competences,
+.container-liste-moyens-techniques{
+    width:25%;
+    margin-top:-45vh;
+}
+
+.container-liste-competences{
+    float:left;
+}
+.container-liste-competences h3{
+    float:right;
+}
+.container-liste-competences ul{
+    text-align:right;
+}
+
+.container-liste-moyens-techniques{
+    float:right;
+}

@@ -1,0 +1,17 @@
+.form input,
+.form select{
+    line-height:60px;
+    height:60px;
+}
+span.form{
+    float:left;
+    width:auto;
+    line-height:60px;
+    font-family:Open Sans;
+    font-weight:600;
+    margin-right:10px;
+}
+
+.Simulateur .bloc{
+    margin-bottom:10px;
+}

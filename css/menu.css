@@ -1,0 +1,20 @@
+nav{
+    float:left;
+    width:100%;
+    max-width:1200px;
+    height:80px;
+    background-color:white;
+    border-bottom:1px solid #e8e8e8;
+    margin-left:calc((100% - 1200px) / 2);
+}
+nav .content{
+    padding:0;
+}
+
+.logo_menu{
+    float:left;
+    height:42px;
+    width:auto;
+    vertical-align:middle;
+    margin-top:calc((80px - 42px) / 2);
+}

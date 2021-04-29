@@ -1,0 +1,6 @@
+User-agent: *
+Allow: www.naturalink.fr/notre-entreprise
+Allow: www.naturalink.fr/nos-realisations
+Allow: www.naturalink.fr/nos-services
+Allow: www.naturalink.fr/contact
+Allow: www.naturalink.fr/mentions-legales
