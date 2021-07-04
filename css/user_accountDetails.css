@@ -1,0 +1,48 @@
+.Form_account_details .bloc button{
+    margin-left:15px;
+}
+.Form_account_details .bloc button.toogle_action{
+    float:left;
+    width:auto;
+    background:transparent;
+    border:none;
+    font-family:Nunito;
+    font-weight:700;
+    font-size:15px;
+    line-height:45px;
+}
+
+.Form.Form_account_details ._form{
+    width:100%;
+}
+
+.Form.Form_account_details ._form input,
+.Form.Form_account_details ._form span{
+    float:left;
+    width:300px;
+    height:45px;
+}
+.Form.Form_account_details ._form span.not_provided{
+    font-weight:300;
+    font-style:italic;
+}
+
+.Form.Form_account_details ._form.toogle span{
+    display:none;
+}
+.Form.Form_account_details ._form.untoogle input{
+    display:none;
+}
+
+
+
+.Form_account_details .bloc button.action.action{
+    float:left;
+    margin-top:0;
+}
+
+.Form_account_details button.cancel{
+    float:left;
+    margin-top:0;
+    margin-left:5px;
+}

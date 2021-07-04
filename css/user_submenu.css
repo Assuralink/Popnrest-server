@@ -1,0 +1,29 @@
+nav.sub_menu{
+    float:left;
+    width:100%;
+    text-align:center;
+    border-bottom:none;
+}
+.sub_menu a{
+    text-decoration:none;
+    color:initial;
+    font-size:16px;
+    line-height:80px;
+    padding:0 15px;
+    font-weight:700;
+}
+.sub_menu a:hover{
+    font-weight:700;
+}
+.sub_menu a.active{
+    color:#ffd400;
+}
+
+.sub_menu a .alert-icon{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:10px;
+    background-color:orangered;
+    margin-left:5px;
+}

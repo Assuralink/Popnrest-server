@@ -1,0 +1,56 @@
+{{> Menu }}
+
+<div class="bloc content">
+
+    {{> user_welcoming }}
+
+    {{> user_submenu }}
+    <script>
+        $(".sub_menu a[href='/users/account']").addClass("active");
+    </script>
+
+    <article id="Account_details">
+
+        <h1>Account details</h1>
+
+        <div class="bloc Form _content Form_account_details">
+            
+            <div class="_form bloc untoogle Form_firstname">
+                <input type="text" placeholder="Firstname" />
+                <span></span>
+                <button class="action">
+                    Update firstname
+                </button>
+            </div>
+
+            <div class="_form bloc untoogle Form_lastname">
+                <input type="text" placeholder="Lastname" />
+                <span></span>
+                <button class="action">
+                    Update lastname
+                </button>
+            </div>
+
+            <div class="_form bloc untoogle Form_email">
+                <input type="text" placeholder="Email" />
+                <span></span>
+                <button class="action">
+                    Update email
+                </button>
+            </div>
+
+            <div class="_form bloc untoogle Form_phoneNumber">
+                <input type="text" placeholder="Phone Number" />
+                <span></span>
+                <button class="action">
+                    Update phone number
+                </button>
+            </div>
+            
+        </div>
+    </article>
+
+</div>
+
+<script type="text/javascript" src="/js/user_accountDetails.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/user_accountDetails.css" />

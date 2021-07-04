@@ -1,147 +1,352 @@
-*{
-    box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
-body, html{
-    width:100%;
-    overflow-x:hidden;
+div {
+  box-sizing: border-box;
 }
-
-h1,h2,h3,h4{
-    margin:0;
-    width:100%;
-}
-
-
-
-.bloc{
-    float:left;
-    width:100%;
+body,
+html {
+  width: 100%;
+  overflow-x: hidden;
+  padding-right: 0;
+  font-size: 1rem;
 }
 
-body{
-    font-size:12px;
-    color:#212529;
-    font-weight: 400;
-    line-height:20px;
-    font-family:Nunito;
-    font-weight:500;
+h1,
+h2,
+h3,
+h4 {
+  float: left;
+  width: 100%;
+  font-weight: 700;
+  font-size: 26px;
+  margin: 0;
 }
 
-a,a:hover,a:visited,a:focus{
-    text-decoration:none;
-    outline: 0;
-}
-a.button{
-    color:white;
+.bloc {
+  float: left;
+  width: 100%;
 }
 
-.content{
-    float:left;
-    width:100%;
-    max-width:1200px;
-    margin-left:calc((100% - 1200px) / 2);
-}
-@media all and (max-width:1200px){
-    .content{
-        margin-left:0;
-    }
+body {
+  font-size: 12px;
+  color: #212529;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: Nunito;
+  font-weight: 500;
 }
 
-.content .content{
-    float:left;
-    width:100%;
-    max-width:800px;
-    margin-left:calc((100% - 800px) / 2);
+a {
+  color: inherit;
 }
-@media all and (max-width:800px){
-    .content .content{
-        margin-left:0;
-    }
+a,
+a:hover,
+a:visited,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
 }
-
-article h1,
-article h2,
-article h3{
-    font-weight:700;
-    font-size:26px;
+a.button {
+  color: white;
 }
-
-
-
-.Form h2{
-    float:left;
-    width:100%;
-    margin:0;
-    text-align:left;
-    color:#212529;
-    font-family:Nunito;
-    font-weight:500;
-    line-height:64px;
-    border-bottom:1px solid #dee2e6;
-    font-size:18px;
-}
-.Form h3{
-    float:left;
-    width:100%;
-    margin:0;
-    text-align:left;
-    color:#212529;
-    font-size:1.3em;
-    border-bottom:1px solid #ffd400;
-    font-weight:600;
-    line-height:31px;
-    margin-bottom:15px;
+a:hover {
+  color: #ffd400;
+  font-weight: 500;
 }
 
-input::placeholder{
-    font-size:16px;
+.content {
+  float: left;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: calc((100% - 1200px) / 2);
+  padding: 25px;
 }
-.Form ._form{
-    float:left;
-    width:auto;
-    position:relative;
-}
-
-
-.Form ._form label{
-    position:absolute;
-    top:15px;
-    left:10px;
-    line-height:15px;
-    color:#a2a2a2;
-}
-.Form ._form input{
-    float:left;
-    width:100%;
-    color: #000000;
-    font-size: 16px;
-    border: 1px solid #a2a2a2;
-    background:white;
-    line-height:45px;
-    padding:0 10px;
-}
-.Form ._form ._content{
-    float:left;
-    width:100%;
-    color: #000000;
-    font-size: 16px;
-    font-weight:700;
-    background:white;
-    line-height:45px;
-    padding:0 10px;
+.content.main {
+  min-height: calc(100vh - 80px - 170px);
 }
 
-.Form .action{
-    float:right;
-    width:auto;
-    line-height:45px;
-    background-color:#ffd400;
-    border-radius:5px;
-    border:none;
-    font-family:Nunito;
-    color:#212529;
-    font-weight:600;
-    font-size:1.2em;
-    padding:0 20px;
-    margin-top:15px;
+@media all and (max-width: 1200px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+.content .content {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  margin-left: calc((100% - 800px) / 2);
+}
+@media all and (max-width: 800px) {
+  .content .content {
+    margin-left: 0;
+  }
+}
+
+.Form h2 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  color: #212529;
+  font-family: Nunito;
+  font-weight: 500;
+  line-height: 64px;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 18px;
+}
+.Form h3 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  color: #212529;
+  font-size: 1.3em;
+  border-bottom: 2px solid #ffd400;
+  font-weight: 700;
+  line-height: 31px;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+.Form ._form {
+  float: left;
+  width: auto;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+
+.Form ._form label {
+  float: left;
+  width: 100%;
+  margin: 0;
+  line-height: 21px;
+  font-size: 1.2em;
+  color: #212529;
+  font-weight: 600;
+}
+.Form ._form input,
+.Form ._form select {
+  float: left;
+  width: 100%;
+  color: #000000;
+  font-size: 16px;
+  border: 1px solid #dedede;
+  background: white;
+  line-height: 45px;
+  height: 45px;
+  padding: 0 10px;
+}
+.Form ._form span {
+  float: left;
+  width: 100%;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 700;
+  background: white;
+  line-height: 45px;
+  padding: 0 10px;
+}
+.Form ._form span.not_provided {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.Form .action,
+button.action {
+  float: right;
+  width: auto;
+  line-height: 45px;
+  background-color: #ffd400;
+  border-radius: 5px;
+  border: none;
+  font-family: Nunito;
+  color: #212529;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0 20px;
+  margin: 0 5px;
+}
+.Form button.cancel,
+button.cancel {
+  float: right;
+  width: auto;
+  line-height: 45px;
+  background-color: #dedede;
+  border-radius: 5px;
+  border: none;
+  font-family: Nunito;
+  color: #212529;
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 0 20px;
+  margin-top: 15px;
+}
+.Form ._form.halfSize {
+  float: left;
+  width: 50%;
+}
+.Form ._form.fullSize {
+  float: left;
+  width: 100%;
+}
+
+.Form .error_message{
+  float:left;
+  width:100%;
+  line-height:45px;
+  background-color:rgb(255, 244, 244);
+  color:orangered;
+  border-left:2px solid red;
+  padding-left:25px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+.Form .success_message{
+  float:left;
+  width:100%;
+  line-height:45px;
+  background-color:rgb(249, 255, 244);
+  color:forestgreen;
+  border-left:2px solid forestgreen;
+  padding-left:25px;
+  font-family:Nunito;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+button.action:hover {
+  background-color: #fde35f;
+}
+button.cancel:hover {
+  background-color: #bbbbbb;
+}
+
+.greyBackground {
+  background-color: #f5f6fa;
+}
+.yellowBackground {
+  background-color: #ffd400;
+}
+
+a:hover {
+  cursor: pointer;
+}
+a.primary,
+button.primary {
+  display: inline-block;
+  width: 220px;
+  background-color: #ffd400;
+  color: #212529;
+  border-radius: 5px;
+  line-height: 45px;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  text-align: center;
+}
+a.primary:hover,
+button.primary:hover {
+  background-color: #212529;
+  color: white;
+}
+
+a.secondary,
+button.secondary {
+  display: inline-block;
+  width: 220px;
+  background-color: #212529;
+  color: white;
+  border-radius: 5px;
+  line-height: 45px;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  border: 2px solid white;
+  text-align: center;
+}
+a.secondary:hover,
+button.secondary:hover {
+  background-color: white;
+  color: #212529;
+  border: 2px solid #212529;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  margin-top: 10px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+.modal-header {
+  background-color: #fafafa;
+  border-bottom: none;
+}
+.modal-header h2 {
+  float: left;
+  width: 100%;
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: Nunito;
+  color: black;
+  padding-left: 10px;
+  border-left: 7px solid #ffd400;
+}
+.modal-body article {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.errorMessage {
+  float: left;
+  width: 100%;
+  border-left: 3px solid rgb(194, 52, 0);
+  background-color: #fafafa;
+  color: rgb(194, 52, 0);
+  line-height: 45px;
+  margin-bottom: 15px;
+}
+.successMessage {
+  float: left;
+  width: 100%;
+  border-left: 3px solid forestgreen;
+  background-color: #fafafa;
+  color: forestgreen;
+  line-height: 45px;
+  margin-bottom: 15px;
+}
+
+.closeModalButton {
+  float: right;
+  background-color: #fde35f;
+  color: white;
+  font-weight: 800;
+  border-radius: 5px;
+}
+.closeModalButton:hover {
+  background-color: #ffd400;
+}
+
+.hidden {
+  display: none;
+}
+
+input:focus{
+  outline:none;
 }

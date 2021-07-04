@@ -1,0 +1,35 @@
+{{> Menu }}
+
+<div class="main content">
+    <div class="Form Form_login">
+
+        <h3>Please login to access Customer Dashboard</h3>
+
+        <span class="bloc error_message"></span> 
+
+        <div class="_form form_email error">
+            <input
+            type="text"
+            placeholder="Email *"
+            onChange={this.handleChange_email}
+            />
+        </div>
+        <div class="_form form_password">
+            <input
+            type="password"
+            placeholder="Password *"
+            onChange={this.handleChange_password}
+            />
+        </div>
+
+        <div class="bloc">
+            <button class="action btn_login">
+                Connexion
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/user_login.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/user_login.css" />

@@ -1,14 +1,38 @@
 nav{
     float:left;
     width:100%;
-    max-width:1200px;
     height:80px;
     background-color:white;
     border-bottom:1px solid #e8e8e8;
-    margin-left:calc((100% - 1200px) / 2);
 }
 nav .content{
     padding:0;
+}
+
+nav ul{
+    float:right;
+    width:auto;
+    list-style-type:none;
+    margin:0;
+}
+nav ul li{
+    display:inline;
+}
+nav ul li a{
+    float:right;
+    width:auto;
+    margin: 0 15px;
+    color:#212529;
+    line-height:24px;
+    font-size:15px;
+    text-transform:uppercase;
+    font-weight:500;
+    margin-top:calc((80px - 24px) / 2);
+    border-bottom:2px solid transparent;
+}
+nav ul li a:hover{
+    color:#212529;
+    border-bottom:2px solid #ffd400;
 }
 
 .logo_menu{
@@ -17,4 +41,5 @@ nav .content{
     width:auto;
     vertical-align:middle;
     margin-top:calc((80px - 42px) / 2);
+    margin-left:-30px;
 }

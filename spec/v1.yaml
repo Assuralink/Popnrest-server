@@ -1,0 +1,296 @@
+openapi: 3.0.0
+info:
+  title: Pop & Rest documentation
+  description: API Documentation for Pop & Rest
+  version: 1.0.0
+servers:
+  - url: https://popnrest-api.live
+    description: production server
+paths:
+  /users/signup:
+    post:
+      summary: User Signup
+      description: New user signup.<br>1) Check if user exist in database.<br>2) If not, try to auth with Firebase<br>3) If auth is granted on Firebase, save account logs in database for future auths
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                firstname: 
+                  type: string
+                lastname:
+                  type: string
+                email:
+                  type: string
+                phoneNumber:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  user:
+                    type: object
+                    $ref: '#/components/schemas/User'
+                  token:
+                    type: string
+  /users/login:
+    post:
+      summary: 'User Login'
+      description: Authenticate a customer user with email and password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  description: user's email
+                  type: string
+                password:
+                  description: user's password
+                  type: string
+      responses:
+        200: 
+          description: User informations
+          content:
+            application/json:
+              schema: 
+                properties:
+                  user: 
+                    type: object
+                    $ref: '#/components/schemas/User'
+                  token: 
+                    type: string
+                
+        301:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralError'
+  /users/details:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    get:
+      summary: User Details
+      description: Get user informations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                  description: User ID stock in LocalStorage on users/login
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  user:
+                    type: object
+                    $ref: '#/components/schemas/User'
+        403:
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      stack: 
+                        type: string
+                      message: 
+                        type: string
+  /users/firstname/update:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    post:
+      summary: Update Firstname
+      description: Update user's firstname
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                firstname: 
+                  type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: 
+                    type: boolean
+                  message:
+                    type: string
+                  firstname:
+                    type: string
+  /users/lastname/update:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    post:
+      summary: Update Lastname
+      description: Update user's lastname
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                lastname: 
+                  type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: 
+                    type: boolean
+                  message:
+                    type: string
+                  lastname:
+                    type: string
+  /users/email/update:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    post:
+      summary: Update Email
+      description: Update user's email
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                email: 
+                  type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: 
+                    type: boolean
+                  message:
+                    type: string
+                  email:
+                    type: string
+  /users/phoneNumber/update:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    post:
+      summary: Update Phone Number
+      description: Update user's phone number
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                email: 
+                  type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: 
+                    type: boolean
+                  message:
+                    type: string
+                  phoneNumber:
+                    type: string
+  /users/bookings:
+    parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: Bearer + Token returned on /login or /signup
+        required: true
+    post:
+      summary: Get Booking Log
+      description: Returns bookings history classed by 2 categories (past and upcoming)
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  bookings:
+                    type: array
+                  past_bookings:
+                    type: array
+                  upcoming_bookings:
+                    type: array
+                  
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    User:
+      type: object
+      properties:
+        id: 
+          type: number
+          description: unique ID used all around the app to authenticate
+        uid:
+          type: string
+          description: unique ID used in Firebase old database
+        firtname: 
+          type: string
+        lastname: 
+          type: string
+        email: 
+          type: string
+        phoneNumber: 
+          type: string
+    GeneralError:
+      type: object
+      properties:
+        stack: 
+          type: string
+        message: 
+          type: string

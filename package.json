@@ -21,8 +21,11 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "password-hash": "^1.2.2",
     "promise": "^8.1.0",
     "ssh2": "^0.8.9",
-    "timediff": "^1.1.1"
+    "stripe": "^8.150.0",
+    "timediff": "^1.1.1",
+    "validate-date": "^2.0.0"
   }
 }

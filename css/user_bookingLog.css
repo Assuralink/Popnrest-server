@@ -1,0 +1,44 @@
+.BookingLog{
+    float:left;
+    line-height:25px;
+    font-size:16px;
+    letter-spacing:0.5px;
+}
+.BookingLog span{
+    float:left;
+    border-left:2px solid #dedede;
+    padding-top:25px;
+    line-height:15px;
+    padding-bottom:10px;
+}
+.BookingLog span:first-child{
+    border-left:none;
+}
+.BookingLog:first-child span{
+    padding-top:0;
+}
+.BookingLog:last-child span{
+    padding-bottom:0;
+}
+
+.date{
+    width:100px;
+    padding-right:20px;
+}
+.time{
+    width:120px;
+    padding:0 20px;
+}
+.duration{
+    width:170px;
+    padding:0 20px;
+}
+.location{
+    width:170px;
+    padding:0 20px;
+}
+.price{
+    width:80px;
+    padding:0 20px;
+    text-align:right;
+}

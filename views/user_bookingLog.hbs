@@ -1,0 +1,32 @@
+{{> Menu }}
+
+<div class="bloc content">
+
+    {{> user_welcoming }}
+
+    {{> user_submenu }}
+    <script>
+        $(".sub_menu a[href='/users/booking-log']").addClass("active");
+    </script>
+
+    <article id="Booking_Log">
+
+        <h1>Booking Log</h1>
+
+        
+    </article>
+
+</div>
+
+<script type="text/javascript" id="template_BookingLog">
+    <div class="BookingLog">
+        <span class="date"></span>
+        <span class="time"></span>
+        <span class="duration"></span>
+        <span class="location"></span>
+        <span class="price"></span>
+    </div>
+</script>
+
+<script type="text/javascript" src="/js/user_bookingLog.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/user_bookingLog.css" />
