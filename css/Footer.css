@@ -1,0 +1,88 @@
+footer{
+    float:left;
+    width:100%;
+    background-color:#ffd400;
+    font-family:Nunito;
+    color:#4a4a4a;
+    font-weight:600;
+    font-size:14px;
+}
+footer.night_mode{
+    background-color:#2e4482;
+    color:white;
+}
+
+footer article{
+    float:left;
+    width:auto;
+    padding:20px 30px;
+}
+footer .content{
+    padding:0;
+}
+
+footer #legal_description{
+    float:left;
+    width:40%;
+    padding: 20px 25px;
+    box-sizing:border-box;
+}
+footer h5{
+    float:left;
+    width:100%;
+    margin:0;
+    font-weight:700;
+    font-size:14px;
+}
+footer p{
+    float:left;
+    width:100%;
+    font-size:14px;
+    font-weight:400;
+    margin:0;
+    margin-top:15px;
+}
+
+
+#sitemap{
+    float:left;
+    width:calc(60% - 250px);
+    box-sizing:border-box;
+    padding:20px 25px;
+}
+#sitemap div{
+    float:left;
+    padding:0 25px;
+    font-size:14px;
+    font-weight:400;
+    color:#4a4a4a;
+    line-height:32px;
+}
+#sitemap h5{
+    width:auto;
+}
+#sitemap a:hover{
+    color:#4a4a4a;
+    text-decoration:underline;
+}
+
+footer.night_mode #sitemap div,
+footer.night_mode #sitemap a:hover{
+    color:white;
+}
+
+#social_links{
+    float:right;
+    width:250px;
+    padding:20px 25px;
+    box-sizing:border-box;
+}
+#social_links a img{
+    width:40px;
+}
+#social_links a:first-child img{
+    margin-left:0;
+}
+#social_links a:last-child img{
+    margin-right:0;
+}

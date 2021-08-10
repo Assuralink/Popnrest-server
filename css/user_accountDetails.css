@@ -1,3 +1,12 @@
+#Account_details{
+    float:left;
+    width:700px;
+    margin-left:calc((100% - 700px) / 2);
+}
+
+.Form_account_details{
+    margin-top:45px;
+}
 .Form_account_details .bloc button{
     margin-left:15px;
 }
@@ -27,22 +36,36 @@
     font-style:italic;
 }
 
-.Form.Form_account_details ._form.toogle span{
+.Form.Form_account_details ._form.toogle span,
+.Form.Form_account_details ._form.toogle button.edit_field{
     display:none;
 }
-.Form.Form_account_details ._form.untoogle input{
+
+.Form.Form_account_details ._form.untoogle input,
+.Form.Form_account_details ._form.untoogle button.action,
+.Form.Form_account_details ._form.untoogle button.cancel{
     display:none;
 }
 
 
-
-.Form_account_details .bloc button.action.action{
+.Form.Form_account_details .bloc button.action,
+.Form.Form_account_details .bloc button.cancel{
     float:left;
     margin-top:0;
 }
-
-.Form_account_details button.cancel{
-    float:left;
-    margin-top:0;
+.Form.Form_account_details .bloc button.cancel{
     margin-left:5px;
+}
+
+.Form.Form_account_details .bloc .edit_field{
+    float:left;
+    width:auto;
+    line-height:45px;
+    font-weight:700;
+    background-color:transparent;
+    font-size:16px;
+}
+.Form.Form_account_details .bloc .edit_field:hover{
+    cursor:pointer;
+    color:#ffd400;
 }

@@ -1,0 +1,268 @@
+{{> Menu }}
+
+<div class="bloc content">
+
+    <div id="properties_images_carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {{#each images }}
+                {{#if first}}
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ url }}" alt="First slide">
+                    </div>
+                {{else}}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ url }}" alt="First slide">
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <a class="carousel-control-prev" href="#properties_images_carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#properties_images_carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <div class="BookingForm Theme">
+
+        <div class="bloc greyBackground">
+
+            <h3>Make a <b>booking</b></h3>
+
+            <div class="bloc Form Form_MakeBooking">
+
+                <input type="hidden" id="data_propertyId" value="{{ propertyId }}" />
+
+                <div class="form_date halfSize">
+                    <label>Choose Date</label>
+                    <input type="text" />
+                    <button id="display_datePicker">
+                        <i class="fa fa-calendar-alt"></i>
+                    </button>
+                </div>
+                <div class="_form halfSize form_time">
+                    <label>Choose Time</label>
+                    <input type="text" />
+                    <button class="display_timePicker">
+                        <i class="fa fa-clock"></i>
+                    </button>
+                </div>
+                <div class="_form fullSize form_duration">
+                    <label>Duration</label>
+                    <select>
+                        <option value="30">30 minutes</option>
+                        <option value="60" selected>1 hour</option>
+                        <option value="90">1 hour 30min</option>
+                        <option value="120">2 hours</option>
+                        <option value="150">2 hours 30min</option>
+                        <option value="180">3 hours</option>
+                        <option value="210">3 hours 30min</option>
+                    </select>
+                </div>
+                <div class="_form fullSize form_livePrice">
+                    <span class="_content">£8</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bloc">
+            <button class="action primary">
+                Instant booking
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal" id="modal_time_selection">
+    <div class="modal-content">
+
+        <div class="close_modal">
+            <i class="fa fa-times"></i>
+        </div>
+
+        <h2>
+            Pick a <b>time</b>
+        </h2>  
+
+        <div class="bloc Form_timepicker">
+            <div class="hours">
+                <i class="fa fa-chevron-up upgrade"></i>
+                <input type="text" value="09" />
+                <i class="fa fa-chevron-down downgrade"></i>
+            </div>    
+            <span class="time_separator">:</span>     
+            <span class="minutes">
+                <i class="fa fa-chevron-up upgrade"></i>
+                <input type="text" value="00" />
+                <i class="fa fa-chevron-down downgrade"></i>
+            </span>   
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="modal_existantCart">
+    <div class="modal-content">
+
+        <div class="content">
+
+            <h2>
+                A booking is <b>pending</b>
+            </h2>   
+
+            <div class="bloc greyBackground Form Booking_details">
+                <div class="main_picture"></div>
+                <div class="details">
+                    <div class="bloc property_name">
+                        <span class="_content"></span>
+                    </div>
+                    <span class="bloc property_address"></span>
+                    <div class="booking_dates">
+                        <div class="icon"></div>
+                        <span class="_content"></span>
+                    </div>
+                    <div class="booking_duration">
+                        <div class="icon"></div>
+                        <span class="_content"></span>
+                    </div>
+                    <div class="booking_totalPrice">
+                        <div class="icon"></div>
+                        <span class="_content"></span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="action">
+                        Confirmation
+                    </button>
+                    <button class="cancel">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="/css/existantCart_model.css" />
+<script type="text/javascript" src="/js/existantCart_model.js"></script>
+
+<div class="modal" id="modal_login" data-backdrop="static">
+    <div class="modal-content">
+
+        <button class="close_modal">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <h2>
+            Login to your <b>Account</b>
+        </h2>
+
+        <div class="bloc Form Form_Login">
+
+            <div class="error_message"></div>
+
+            <div class="_form halfSize form_email">
+                <input type="text" placeholder="Email" />
+            </div>
+            <div class="_form halfSize form_password">
+                <input type="password" placeholder="Password" />
+            </div>
+            
+            <div class="bloc">
+                <button class="action">
+                    Log In
+                </button>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <p>
+            Don't have an account yet ? <button id="link_SignupForm">Sign up</button>
+        </p>
+
+    </div>
+</div>
+
+<div class="modal" id="modal_signup" data-backdrop="static">
+    <div class="modal-content">
+
+        <button class="close_modal">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <h2>
+            Create your <b>Account</b>
+        </h2>
+
+        <div class="bloc Form Form_Signup">
+
+            <div class="error_message"></div>
+
+            <div class="_form halfSize form_firstname">
+                <input type="text" placeholder="Firstname" />
+            </div>
+            <div class="_form halfSize form_lastname">
+                <input type="text" placeholder="Lastname" />
+            </div>
+            <div class="_form halfSize form_email">
+                <input type="text" placeholder="Email" />
+            </div>
+            <div class="_form halfSize form_phoneNumber">
+                <input type="text" placeholder="Mobile number" />
+            </div>
+            <div class="_form halfSize form_password">
+                <input type="password" placeholder="Password" />
+            </div>
+            <div class="_form halfSize form_confirmPassword">
+                <input type="password" placeholder="Confirm password" />
+            </div>
+            <div class="_form halfSize form_birthday">
+                <input type="text" placeholder="Birthday" />
+            </div>
+
+            <div class="bloc">
+                <button class="action">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <p>
+            Already have an account with us ? <button id="link_LoginForm">Log in</button>
+        </p>
+
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="/css/signup_modal.css" />
+<script type="text/javascript" src="/js/signup_modal.js"></script>
+
+<script type="text/javascript" src="/js/tools/auth.js"></script>
+<script type="text/javascript" src="/js/tools/cart.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/custom_mccalendar.css" />
+
+<script type="text/javascript" src="/js/tools/theme_changer.js"></script>
+
+<script type="text/javascript" src="/js/custom_timePicker.js"></script>
+<script type="text/javascript" src="/js/custom_datePicker.js"></script>
+<script type="text/javascript" src="/js/properties_livePrice.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/properties.css" />
+<script type="text/javascript" src="/js/properties.js"></script>
+
+<script type="text/javascript" src="/js/tools/cart.js"></script>
+
+{{> Footer }}

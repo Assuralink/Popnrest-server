@@ -141,9 +141,8 @@ function accountDetails_toogleAndUpdate(elem, value, fn){
         $(elem).find("span").html('Not provided');
     }
 
-    $(elem).find(".action").on("click", function(){
-
-        // Appearence toogle / untoogle
+    // Appearence toogle / untoogle
+    $(elem).find(".edit_field").on("click", function(){
         if($(this).closest("._form").hasClass("untoogle")){
             $(this).closest("._form").removeClass("untoogle");
             $(this).closest("._form").addClass("toogle");
@@ -151,8 +150,21 @@ function accountDetails_toogleAndUpdate(elem, value, fn){
             $(this).closest("._form").removeClass("toogle");
             $(this).closest("._form").addClass("untoogle");
         }
+    });
 
-        // Action
+    // Cancel
+    $(elem).find(".cancel").on("click", function(){
+        if($(this).closest("._form").hasClass("untoogle")){
+            $(this).closest("._form").removeClass("untoogle");
+            $(this).closest("._form").addClass("toogle");
+        }else{
+            $(this).closest("._form").removeClass("toogle");
+            $(this).closest("._form").addClass("untoogle");
+        }
+    });
+
+    // Action
+    $(elem).find(".action").on("click", function(){
         if($(this).closest("._form").hasClass("untoogle")){
             fn($(this).closest("._form").find("input").val());
         }

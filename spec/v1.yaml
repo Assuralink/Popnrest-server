@@ -263,7 +263,53 @@ paths:
                     type: array
                   upcoming_bookings:
                     type: array
-                  
+  /users/bookings/add:
+    post:
+      summary: Add a booking
+      description: Return an identifier for the booking request whenever the user is authenticated or not
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              properties:
+                userId: 
+                  type: number
+                date: 
+                  type: date
+                duration:
+                  type: number
+                time: 
+                  type: time
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  userId:
+                    type: number
+                    description: When to request end, check the user login status. If auth. -> Go to cart. If not -> Signup modal show
+                  identifier: 
+                    type: string
+                    description: cart ID to access to the payment page cart/:identifier
+                  bookingId: 
+                    type: number
+                    description: booking ID
+                  fromDate: 
+                    type: string
+                  from_sql: 
+                    type: string MySQL formated
+                    description: booking start date
+                  to_sql:
+                    type: string MySQL formated
+                    description: booking end date
+                  durationString:
+                    type: string
+                    description: booking duration formated
+                  duration:
+                    type: number
+                
+          
 components:
   securitySchemes:
     BearerAuth:

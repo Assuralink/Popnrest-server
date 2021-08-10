@@ -1,0 +1,17 @@
+body.journey_mode .mc-table__weekday,
+body.journey_mode .mc-btn--success{
+    color:#ffd400;
+}
+body.journey_mode .mc-date--active.mc-date--picked,
+body.journey_mode .mc-calendar--modal .mc-display{
+    background-color:#ffd400;
+}
+
+body.night_mode .mc-table__weekday,
+body.night_mode .mc-btn--success{
+    color:#131862;
+}
+body.night_mode .mc-date--active.mc-date--picked,
+body.night_mode .mc-calendar--modal .mc-display{
+    background-color:#131862;
+}

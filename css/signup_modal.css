@@ -1,0 +1,62 @@
+#modal_signup .modal-content,
+#modal_login .modal-content{
+    float:left;
+    width:600px;
+    margin-left:calc((100% - 600px) / 2);
+    margin-top:150px;
+    padding: 35px 45px;
+    position:relative;
+}
+#modal_signup .modal-content h2,
+#modal_login .modal-content h2{
+    float:left;
+    width:100%;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.Form_Signup,
+.Form_Login{
+    float:left;
+    width:100%;
+    background-color:#f5f6fa;
+    padding:25px;
+    margin-top:25px;
+}
+
+.separator {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  margin-top: 20px;
+}
+.separator::after {
+  display: inline-block;
+  content: "or";
+  color: black;
+  font-weight: 600;
+  background-color: white;
+  line-height: 20px;
+  bottom: -10px;
+  position: relative;
+  padding: 0 10px;
+  font-size: 1.3em;
+}
+
+#modal_signup p,
+#modal_login p{
+    float:left;
+    width:100%;
+    text-align:center;
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+#modal_signup p button,
+#modal_login p button{
+    display:inline;
+    background:transparent;
+    font-weight: 700;
+    font-style: italic;
+}

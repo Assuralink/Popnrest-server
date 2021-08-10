@@ -1,0 +1,237 @@
+.BookingForm {
+  float: right;
+  width: 500px;
+  margin-top: 35px;
+  position:relative;
+  margin-bottom:45px;
+}
+.BookingForm .greyBackground{
+  padding: 25px;
+  padding-bottom:70px;
+}
+
+.BookingForm.night_mode h3 b{
+  color:#2e4482;
+}
+
+.BookingForm .Form {
+  margin-top: 35px;
+}
+.BookingForm button {
+  float: left;
+  width: auto;
+  margin-top: 15px;
+}
+.BookingForm button.action.primary{
+  position:absolute;
+  top:3px;
+  right:15px;
+  margin-top:14px;
+  margin-right:0;
+  border-radius:0;
+  font-size:15px;
+  width: auto;
+  background: white;
+  border: 2px solid #212529;
+  text-transform: uppercase;
+  color:#212529;
+}
+
+
+.BookingForm .Form ._form input,
+.BookingForm .Form ._form select{
+  border:none;
+  border-radius:10px;
+}
+
+.form_date {
+  float: left;
+  width: calc(50% - 12.5px);
+  margin-right:25px;
+}
+.form_date label {
+  float: left;
+  width: 100%;
+  margin: 0;
+  line-height: 21px;
+  font-size: 1.2em;
+  color: #212529;
+  font-weight: 600;
+}
+.form_date input {
+  float: left;
+  width: calc(100% - 40px);
+  color: #000000;
+  font-size: 16px;
+  background: white;
+  line-height: 45px;
+  height: 45px;
+  padding: 0 10px;
+  border:2px solid transparent;
+  border-radius:10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#display_datePicker{
+  float:left;
+  width:40px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color:#eeeeee;
+  margin:0;
+}
+
+.Form ._form.halfSize.form_time{
+  width: calc(50% - 12.5px);
+}
+.Form ._form.form_time input{
+  float:left;
+  width: calc(100% - 40px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border:2px solid transparent;
+}
+.Form ._form.form_time .display_timePicker{
+  float:left;
+  width:40px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color:#eeeeee;
+  margin:0;
+  outline:none;
+}
+
+.display_timePicker i,
+#display_datePicker i{
+  float:left;
+  width:100%;
+  text-align:center;
+  line-height:43px;
+}
+
+.Theme.journey_mode .display_timePicker i,
+.Theme.journey_mode #display_datePicker i{
+  color:#ffd400;
+}
+.Theme.night_mode .display_timePicker i,
+.Theme.night_mode #display_datePicker i{
+  color:#2e4482;
+}
+
+.Form.Form_MakeBooking ._form.fullSize.form_livePrice{
+  position:absolute;
+  float:left;
+  width:100%;
+  bottom:-45px;
+  left:calc((100% - 90px) / 2);
+}
+.Form_MakeBooking ._form.form_livePrice label{
+  float:left;
+  width:100%;
+  font-style:italic;
+  font-weight:500;
+  text-align:center;
+}
+.Form_MakeBooking .form_livePrice ._content{
+  float: left;
+  width: 90px;
+  border-radius: 45px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #212529;
+  line-height: 90px;
+  text-align: center;
+  height: 90px;
+}
+.Form_MakeBooking.journey_mode .form_livePrice ._content{
+  background-color: #ffd400;
+}
+.Form_MakeBooking.night_mode .form_livePrice ._content{
+  background-color: #2e4482;
+  color:white;
+}
+
+#modal_time_selection .modal-content{
+  position:relative;
+  float:left;
+  width:500px;
+  margin-top:15vh;
+  margin-left: calc((100% - 500px) / 2);
+  border-radius:10px;
+  overflow:hidden;
+}
+body.journey_mode #modal_time_selection .modal-content{
+  background-color:#ffd400;
+}
+body.night_mode #modal_time_selection .modal-content{
+  background-color:#2e4482;
+}
+
+#modal_time_selection .modal-content h2{
+  margin:0;
+  padding: 35px;
+  background-color:white;
+}
+
+#modal_time_selection .modal-content.journey_mode h2 b{
+  color:#ffd400;
+}
+#modal_time_selection .modal-content.night_mode h2 b{
+  color:#2e4482;
+}
+
+.Form_timepicker{
+  padding:35px;
+}
+
+.Form_timepicker .downgrade,
+.Form_timepicker .upgrade{
+  float:left;
+  width:100%;
+  color:hsla(0,0%,100%,.8);
+  line-height:31px;
+  text-align:center;
+  font-size:25px;
+}
+.Form_timepicker .downgrade:hover,
+.Form_timepicker .upgrade:hover{
+  color:rgba(0,0,0,0.2);
+  cursor:pointer;
+}
+#modal_time_selection .modal-content.night_mode .Form_timepicker .downgrade:hover,
+#modal_time_selection .modal-content.night_mode .Form_timepicker .upgrade:hover{
+  color:white;
+}
+
+.Form_timepicker input{
+  float:left;
+  width:100%;
+  line-height:65px;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color:hsla(0,0%,100%,.8);
+  background: transparent;
+  border: none;
+  height: 65px;
+}
+
+.Form_timepicker .hours{
+  float:left;
+  width:calc(50% - 15px);  
+}
+.Form_timepicker .time_separator{
+  float:left;
+  width:30px;
+  text-align:center;
+  font-size: 35px;
+  font-weight: 800;
+  color: rgba(0,0,0,0.3);
+  line-height: 101px;
+}
+.Form_timepicker .minutes{
+  float:left;
+  width:calc(50% - 15px);  
+}

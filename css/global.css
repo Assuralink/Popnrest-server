@@ -172,6 +172,14 @@ button.action {
   padding: 0 20px;
   margin: 0 5px;
 }
+.Form.night_mode button.action{
+  background-color: #2e4482;
+  color:white;
+}
+.Form.night_mode button.action:hover{
+  background-color: rgb(40, 57, 104);
+}
+
 .Form button.cancel,
 button.cancel {
   float: right;
@@ -245,12 +253,13 @@ button.cancel:hover {
 a:hover {
   cursor: pointer;
 }
+
 a.primary,
 button.primary {
   display: inline-block;
   width: 220px;
-  background-color: #ffd400;
   color: #212529;
+  background-color: #ffd400;
   border-radius: 5px;
   line-height: 45px;
   font-weight: 700;
@@ -258,11 +267,27 @@ button.primary {
   text-transform: uppercase;
   text-align: center;
 }
-a.primary:hover,
-button.primary:hover {
+a.primary:hover{
   background-color: #212529;
   color: white;
 }
+
+body.journey_mode button.primary{
+  background-color: #ffd400;
+}
+body.night_mode button.primary{
+  background-color: #2e4482;
+  color:white;
+}
+
+body.journey_mode button.primary:hover,
+body.night_mode button.primary:hover{
+  background-color: #212529;
+  color: white;
+}
+
+
+
 
 a.secondary,
 button.secondary {
@@ -349,4 +374,26 @@ p {
 
 input:focus{
   outline:none;
+}
+
+.close_modal{
+    position:absolute;
+    top: 32px;
+    right: 42px;
+    background-color:#f5f6fa;
+    color:grey;
+    font-size: 20px;
+    border-radius: 25px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 38px;
+}
+.close_modal:hover{
+    background-color:#fde35f;
+    color:white;
+    cursor:pointer;
+}
+.modal-content.night_mode .close_modal:hover{
+  background-color:#131862;
 }

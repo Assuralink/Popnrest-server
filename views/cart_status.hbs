@@ -1,0 +1,24 @@
+{{> Menu }}
+
+<section id="Cart">
+    <div class="content">
+
+        {{#if paid }}
+
+            <h1>Congratulations, your booking is confirmed
+
+        {{/if}}
+
+        {{#if expired }}
+
+            <h1>
+                Your cart has expired<br>
+                <a href="/properties/{{ propertyName }}">Go back to {{ title }}</a>
+            </h1>
+
+        {{/if}}
+
+    </div>
+</section>
+
+{{> Footer }}

@@ -1,0 +1,203 @@
+{{> Menu }}
+
+<section id="Cart">
+    <div class="content">
+
+        <input type="hidden" id="data_userId" value="{{ user.id }}" />
+        <input type="hidden" id="data_cartIdentifier" value="{{ cartId }}" />
+        <input type="hidden" id="data_theme_mode" value="{{ theme_mode }}" />
+
+        {{#if userNotAuth }}
+
+        <section id="Signup_section">
+
+            <h2>
+                Become a Pop&Rest member
+            </h2>
+
+            <div class="Form Form_Signup">
+
+                <div class="error_message"></div>
+
+                <div class="_form halfSize form_firstname">
+                    <input type="text" placeholder="Firstname" />
+                </div>
+                <div class="_form halfSize form_lastname">
+                    <input type="text" placeholder="Lastname" />
+                </div>
+                <div class="_form halfSize form_email">
+                    <input type="text" placeholder="Email" />
+                </div>
+                <div class="_form halfSize form_phoneNumber">
+                    <input type="text" placeholder="Mobile number" />
+                </div>
+                <div class="_form halfSize form_password">
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div class="_form halfSize form_confirmPassword">
+                    <input type="password" placeholder="Confirm password" />
+                </div>
+                <div class="_form halfSize form_birthday">
+                    <input type="text" placeholder="Birthday" />
+                </div>
+
+                <div class="bloc">
+                    <button class="action">
+                        Create my account
+                    </button>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <p>
+                Already have an account with us ? <button id="link_LoginForm">Log in</button>
+            </p>
+
+        </section>
+
+        <section id="Login_section">
+
+            <h2>
+                Welcome back my friend
+            </h2>
+
+            <div class="bloc Form Form_Login">
+
+                <div class="error_message"></div>
+
+                <div class="_form halfSize form_email">
+                    <input type="text" placeholder="Email" />
+                </div>
+                <div class="_form halfSize form_password">
+                    <input type="password" placeholder="Password" />
+                </div>
+                
+                <div class="bloc">
+                    <button class="action">
+                        Login to my account
+                    </button>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <p>
+                Don't have an account yet ? <button id="link_SignupForm">Sign up</button>
+            </p>
+
+        </section>
+
+        <section id="Authentification_granteed" class="bloc">
+
+            <img src="/images/checked.svg" alt="check icon" />
+
+            <article>
+                Welcome back <span class="firstname"></span>
+            </article>
+
+        </section>  
+
+        {{/if}}
+
+        <article id="CartIntro" class="bloc">
+
+            <h1>Confirm your booking</h1>
+
+            <p>
+                You are one step away from confirm your stay. Please be advised that
+                you can cancel up to one hour before your booking start time.
+            </p>
+        </article>
+
+        <article id="CartDetails" class="bloc">
+
+            <h2>About your stay</h2>
+
+            <p>
+                <span class="location bloc">{{ title }}</span>
+                <span class="date">Date : {{ startingDate }}</span>
+                <span class="time">Time : {{ startingTime }}</span>
+                <span class="duration">Duration : {{ duration }}</span>
+                {{#if journeyType }}
+                    <span class="type">Type : &#127774</span>
+                {{else}}
+                    <span class="type">Type : &#127771</span>
+                {{/if}}
+                
+                <div class="bloc">
+                    <span class="price">{{ total }}</span>
+                </div>
+                
+            </p>
+        </article>
+
+        <article id="PromotionalCodeApplied">
+
+            <h3>Your promotional code have been applied</h3>
+
+            <div class="bloc">
+                <span class="code"></span>
+                <span class="reduction"></span>
+                <span class="old_price"></span>
+                <span class="new_price"></span>
+            </div>
+
+        </article>
+
+        <article id="HavePromotionalCode">
+
+            <h3>Have a promo code ?</h3>
+
+            <div class="bloc _list_PromotionalCodes">
+
+            </div>
+    
+            <div class="bloc Form PromotionalCodeForm">
+                <div class="_form">
+                    <input type="text" placeholder="Enter your code here" />
+                </div>
+                <button id="applyPromotionalCode">Apply</button>
+            </div>
+        </article>
+
+        <article id="PaymentSection">
+
+            <h2>Payment</h2>
+
+            <form id="StripeForm">
+                <div id="cardElement"><!--Stripe.js injects the Card Element--></div>
+                <button id="submit" class="action disabled">
+                    <div class="spinner hidden" id="spinner"></div>
+                    <span id="button-text">Pay now</span>
+                </button>
+                <p id="card-error" role="alert"></p>
+                <p class="result-message hidden">
+                    Payment succeeded, see the result in your
+                    <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+                </p>
+            </form>
+        </article>
+
+        <div class="bloc">
+            <button id="cancel_booking">
+                <i class="fa fa-trash"></i>Cancel
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script type="text/javascript" src="/js/tools/theme_changer.js"></>
+
+<script type="text/javascript" src="/js/tools/auth.js"></script>
+<script type="text/javascript" src="/js/tools/cart.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/cart.css" />
+<script type="text/javascript" src="/js/cart.js"></script>
+
+<script type="text/javascript" src="/js/payment.js"></script>
+
+{{> Footer }}

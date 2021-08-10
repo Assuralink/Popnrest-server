@@ -10,7 +10,7 @@ nav .content{
 }
 
 nav ul{
-    float:right;
+    float:left;
     width:auto;
     list-style-type:none;
     margin:0;
@@ -30,9 +30,13 @@ nav ul li a{
     margin-top:calc((80px - 24px) / 2);
     border-bottom:2px solid transparent;
 }
-nav ul li a:hover{
+body.journey_mode nav ul li a:hover{
     color:#212529;
     border-bottom:2px solid #ffd400;
+}
+body.night_mode nav ul li a:hover{
+    color:#212529;
+    border-bottom:2px solid #2e4482;
 }
 
 .logo_menu{
@@ -42,4 +46,6 @@ nav ul li a:hover{
     vertical-align:middle;
     margin-top:calc((80px - 42px) / 2);
     margin-left:-30px;
+    border-right: 1px solid #dedede;
+    padding-right: 40px;
 }

@@ -1,18 +1,28 @@
 .Profil {
   float: right;
   width: 350px;
+  position:relative;
 }
 
 .profil_icon {
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
-  margin-top: 20px;
-  background-image: url("/images/default_profile.png");
-  background-size: cover;
+  margin-top: 10px;
+  background-image: url("/images/anonymity.png");
+  background-size: 60%;
   background-position: center;
+  background-color: #fafafa;
+  background-repeat: no-repeat;
 }
+body.journey_mode .profil_icon{
+  border: 2px solid #ffd400;
+}
+body.night_mode .profil_icon{
+  border: 2px solid #2e4482;
+}
+
 .profil_icon.connected {
   background-image: url("/images/connected_profile.png");
 }
@@ -30,8 +40,7 @@
 .profil_infos .profil_username {
   float: left;
   width: 100%;
-  line-height: 20px;
-  margin-top: 23px;
+  line-height: 80px;
 }
 .profil_infos a,
 .profil_infos button {
@@ -58,17 +67,88 @@
   text-decoration: underline;
 }
 
-.MuiSvgIcon-root.toogleCustomersMenu_icon {
-  width: 25px;
-  height: 80px;
-  margin-left: 15px;
+.toogle_menu{
+  float:left;
+  width:35px;
+  text-align:center;
+  line-height:80px;
+  font-size:18px;
+  color:#4a4a4a;
 }
-.MuiSvgIcon-root.toogleCustomersMenu_icon:hover {
-  cursor: pointer;
-  color: #ffd400;
+.toogle_menu:hover{
+  cursor:pointer;
 }
-#CustomersMenu {
-  position: absolute;
-  top: 0;
-  right: 25px;
+body.journey_mode .toogle_menu:hover{
+  color:#ffd400;
+}
+body.journey_mode .toogle_menu:hover{
+  color:#2e4482;
+}
+
+body.journey_mode .toogle_menu:hover{
+  cursor:pointer;
+  color:#ffd400;
+}
+body.night_mode .toogle_menu:hover{
+  cursor:pointer;
+  color:#2e4482;
+}
+
+.user_submenu{
+  position:absolute;
+  right:80px;
+  top:90px;
+  border:1px solid #dedede;
+  border-top:none;
+  width:250px;
+  height:auto;
+  padding:25px 0;
+  z-index:99;
+  background-color:white;
+  box-shadow:rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.1) 0px 3px 8px !important;
+  border-radius:15px;
+  display:none;
+}
+.user_submenu.toogle{
+  display:block;
+}
+
+.user_submenu a{
+  float:left;
+  width:100%;
+  line-height:45px;
+  font-size:16px;
+  font-weight:600;
+  text-align:right;
+  border-right:2px solid transparent;
+  padding-right:15px;
+}
+.user_submenu a:hover{
+  color:inherit;
+  font-weight:600;
+  background-color:#fafafa;
+}
+body.journey_mode .user_submenu a:hover{
+  border-right:2px solid #ffd400;
+}
+body.night_mode .user_submenu a:hover{
+  border-right:2px solid #2e4482;
+}
+
+.logout_btn{
+  float:left;
+  width:100%;
+  line-height:31px;
+  font-size:15px;
+  font-weight:600;
+  text-align:right;
+  color:#4a4a4a;
+  padding-right:15px;
+  background:transparent;
+}
+body.journey_mode .logout_btn:hover{
+  color:#ffd400;
+}
+body.night_mode .logout_btn:hover{
+  color:#2e4482;
 }

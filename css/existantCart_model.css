@@ -1,0 +1,90 @@
+#modal_existantCart{
+    float:left;
+    width:100%;
+}
+#modal_existantCart .modal-content{
+    float:left;
+    width:100%;
+    height:300px;
+    border-radius:0;
+}
+
+.modal {
+    padding-right: 0px !important;
+}
+
+.Booking_details{
+    margin-top:20px;
+    padding:20px;
+}
+
+.Booking_details .main_picture{
+    float: left;
+    width: 200px;
+    height: 150px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+.Booking_details .details{
+    float:left;
+    width:calc(100% - 200px - 150px);
+    padding:15px 25px;
+}
+.Booking_details .actions{
+    float:left;
+    width:150px;
+    padding-top:45px;
+}
+
+.Booking_details .property_name{
+    font-weight:700;
+    font-size:25px;
+}
+
+.Booking_details .property_address{
+    font-style:italic;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+
+.Booking_details .booking_dates,
+.Booking_details .booking_duration,
+.Booking_details .booking_totalPrice{
+    float:left;
+    width:220px;
+    margin-top:15px;
+}
+.Booking_details .booking_dates .icon,
+.Booking_details .booking_duration .icon,
+.Booking_details .booking_totalPrice .icon{
+    float:left;
+    width:40px;
+    height:40px;
+    background-image:url("/images/icon_booking.svg");
+    background-size:contain;
+}
+.Booking_details .booking_dates ._content,
+.Booking_details .booking_duration ._content,
+.Booking_details .booking_totalPrice ._content{
+    float:left;
+    width:auto;
+    height:40px;
+    line-height:40px;
+    padding:0 15px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.Booking_details .booking_duration{
+    margin-left:15px;
+}
+
+.Booking_details .actions .action{
+    margin:0;
+}
+.Booking_details .actions .cancel{
+    margin:0;
+    margin-top:10px;
+}

@@ -25,7 +25,7 @@ function login(){
         if(response.statut){
             window.location.href = '/customers/bookings-log';
         }else{
-
+            
         }
 	});
 }

@@ -21,8 +21,6 @@ var promise = require("promise");
 
 const auth = require("./middleware/auth");
 
-const stripe = require("stripe")("sk_test_z3fnuvqdJsTc3R1bGjcGBn3000rPPqFsNM");
-
 var cors = require("cors");
 const corsOptions = {
   credentials: true,
@@ -57,10 +55,9 @@ app.set('views', __dirname + '/views');
 var today = new Date();
 var YYYY = today.getFullYear();
 
+const PARAMS = require("./constants/index");
 
-var port = 8080 || process.env.PORT;
-var SERVER_MODE = "dev";
-// var SERVER_MODE = "prod";
+var port = PARAMS.port;
 
 var admin = require("firebase-admin");
 const { connect } = require("http2");
@@ -128,17 +125,31 @@ function Data() {
   this.error = "";
 }
 
-
-app.get("/", function(req,res){
-  res.render("homepage");
-});
+const classics_Routes = require("./routes/classics");
+app.use('/', classics_Routes);
 
 
 const users_API = require('./API/users');
 app.use('/users', users_API);
-
 const users_Routes = require('./routes/users');
 app.use('/users', users_Routes);
+
+
+const properties_Routes = require('./routes/properties');
+app.use('/properties', properties_Routes);
+
+
+const cart_Routes = require('./routes/carts');
+app.use('/carts', cart_Routes);
+var carts_API = require('./API/carts');
+app.use('/carts', carts_API);
+
+var bookings_API = require('./API/bookings');
+app.use('/bookings', bookings_API);
+
+var payments_API = require('./API/payments');
+app.use('/payments', payments_API);
+
 
 app.get("/documentation", function(req,res){
   res.render("documentation");
@@ -146,54 +157,6 @@ app.get("/documentation", function(req,res){
 
 
 console.log("Listining on / on port " + port);
-
-
-
-app.post("/payment/stripe/create", urlEncodedParser, function (req, res) {
-
-  console.log(">> Create Stripe Payment");
-  
-  var data = new Data();
-  data.amountToPay = 0;
-
-  var cart = req.body.cart;
-
-  var queries = new promise(function (resolve, reject) {
-
-    if(Number(cart.length) > 0){
-      for(var c in cart){
-        let productPrice = cart[c].price * 100;
-        data.amountToPay += productPrice;
-      }
-      resolve();
-    }else{
-      data.error = "Your cart is empty";
-      reject();
-    }
-
-  })
-  .then(function(){
-    return new promise(function(resolve,reject){
-
-      var paymentIntent = stripe.paymentIntents.create({
-        amount: data.amountToPay,
-        currency: "eur"
-      }).then((res) => {
-        data.clientSecret = res.client_secret;
-        resolve();
-      });
-
-    });
-  })
-  .then(function () {
-    data.statut = true;
-    res.json(data);
-  })
-  .catch(function () {
-    data.statut = false;
-    res.json(data);
-  });
-});
 
 app.post("/customers/account/password", urlEncodedParser, function (req, res) {
 
@@ -223,96 +186,6 @@ app.post("/customers/account/password", urlEncodedParser, function (req, res) {
       data.statut = false;
       res.json(data);
     });
-});
-
-app.post("/bookings/add", urlEncodedParser, function (req, res) {
-
-  console.log(" ---------- BOOKINGS - ADD -----------");
-
-  var data = new Data();
-  data.from_sql = "";
-  data.to_sql = "";
-
-  var userId = req.body.userId;
-  var date = req.body.date;
-  var duration = Number(req.body.duration);
-  var time = req.body.time;
-  var from_sql = null;
-  var to_sql = null;
-
-  var queries = new promise(function (resolve, reject) {
-
-    if(date != ""){
-      if(validateDate(date, responseType="boolean", dateFormat="mm/dd/yyyy")){
-        data.from_sql = dateFormater(new Date(date), "yyyy-mm-dd");
-        data.from_sql += " "+time+":00";
-        resolve();
-      }else{
-        data.error = "Please enter a valid date";
-        reject();
-      }
-    }else{
-      data.error = "Please enter a valid date";
-      reject();
-    }
-  
-  })
-  .then(function () {
-      return new promise(function (resolve, reject) {
-
-        var query = "SELECT DATE_ADD(\""+data.from_sql+"\", INTERVAL "+duration+" MINUTE) as toDate";
-        console.log(query);
-        popnrest_db.query(query, function (err, rows, fields) {
-          if (!err) {
-            if (Number(rows.length) > 0) {
-              data.to_sql = rows[0].toDate;              
-              resolve();
-            } else {
-              reject();
-            }
-          } else {
-            reject();
-          }
-        });
-
-      });
-    })
-  .then(function () {
-      return new promise(function (resolve, reject) {
-
-        var query = "INSERT INTO bookings (productId,fromDate,toDate,duration,customerId,price,vat,total) VALUES ("
-          +"1, "
-          +"\""+data.from_sql+"\", "
-          +"\""+data.to_sql+"\", "
-          +duration+", "
-          +"\""+userId+"\", "
-          +"99,"
-          +"20,"
-          +"119"
-        +")";
-        console.log(query);
-        popnrest_db.query(query, function (err, rows, fields) {
-          if (!err) {
-            data.fromDate = dateFormater(new Date(data.from_sql), "mm/dd/yyyy")+" "+time;
-            data.durationString = duration+" min";
-            data.duration = Number(duration);
-            resolve();
-          } else {
-            data.error = "An error occured when trying to add your reservation, please try later"
-            reject();
-          }
-        });
-
-      });
-    })
-  .then(function () {
-    data.statut = true;
-    res.json(data);
-  })
-  .catch(function () {
-    data.statut = false;
-    res.json(data);
-  });
 });
 
 server.listen(port);

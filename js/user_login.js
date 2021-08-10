@@ -26,5 +26,7 @@ function login(){
         window.location.replace("/users/account");
 	}).fail(function(err){
         $(".error_message").html(err.responseJSON.message);
+        window.localStorage.removeItem('userId');
+        window.localStorage.removeItem('token');
     });
 }

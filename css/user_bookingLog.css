@@ -1,8 +1,33 @@
+#Past_bookings,
+#Upcoming_bookings{
+    float:left;
+    width:718px;
+    margin-left:calc((100% - 718px) / 2);
+    margin-top:45px;
+}
+
+._header_bookings_list{
+    float:left;
+    width:100%;
+    border-bottom: 2px solid #dedede;
+    margin-top:25px;
+}
+._header_bookings_list span{
+    float:left;
+    box-sizing:content-box;
+    font-weight:700;
+    font-size:15px;
+    line-height:45px;
+}
+
 .BookingLog{
     float:left;
     line-height:25px;
     font-size:16px;
     letter-spacing:0.5px;
+}
+.BookingLog:first-child{
+    margin-top:35px;
 }
 .BookingLog span{
     float:left;
@@ -10,6 +35,7 @@
     padding-top:25px;
     line-height:15px;
     padding-bottom:10px;
+    box-sizing:content-box;
 }
 .BookingLog span:first-child{
     border-left:none;
@@ -22,15 +48,15 @@
 }
 
 .date{
-    width:100px;
+    width:80px;
     padding-right:20px;
 }
 .time{
-    width:120px;
+    width:70px;
     padding:0 20px;
 }
 .duration{
-    width:170px;
+    width:150px;
     padding:0 20px;
 }
 .location{
@@ -41,4 +67,17 @@
     width:80px;
     padding:0 20px;
     text-align:right;
+    padding-right:0;
+}
+
+#Past_bookings .message_noElement ._content,
+#Upcoming_bookings .message_noElement ._content{
+  float: left;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  font-style: italic;
+  line-height: 45px;
+  margin-top: 20px;
+  color: gray;
 }

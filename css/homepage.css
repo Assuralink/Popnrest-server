@@ -59,6 +59,64 @@
   padding: 0 20px;
 }
 
+/* POST COVID MEASURES */
+.covidMeasuresList {
+  margin-top: 25px;
+}
+.covidMeasure {
+  float: left;
+  width: calc(100% / 3);
+  padding: 0 25px;
+}
+.covidMeasure img {
+  float: left;
+  width: 100%;
+  height: 70px;
+}
+.covidMeasure h6 {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.covidMeasure p {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+
+/* UNWIND & REST IN PRIVACY */
+#unwind .content {
+  float: left;
+  width: 100%;
+  height: 504px;
+  background-image: url("../../../../images/unwind2.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
+#unwind .content article {
+  float: right;
+  width: 320px;
+  margin-top: 19%;
+  text-align: center;
+  margin-right: 50px;
+}
+#unwind .content article h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* UNLOCK YOUR PRIVATE */
+#unlockYourPrivateSpace a.primary {
+  float: right;
+}
+
+
 /* ON DEMAND SPACES */
 #onDemandSpaces {
   float: left;
